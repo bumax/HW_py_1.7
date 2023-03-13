@@ -9,12 +9,15 @@
 in_str = input("Введите строку: ")
 # in_str = "пара-ра-рам рам-пам-папам па-ра-па-да"
 
+# Определяем функцию, которая считает гласные в слове
 def count_syllables(word):
     vowels = ['а', 'я', 'у', 'ю', 'о', 'е', 'ё', 'э', 'и', 'ы']
     res = list(filter(lambda x: x in vowels, word))
     return len(res)
 
-if len(set(map(count_syllables,in_str.split()))) == 1:
+# Считаем гласные во всех словах, потом полученный список преобразовываем во множество и смотрим размер, 
+# если он равен 1, то значит во всех словах одинаковое количество гласных
+if len(set(map(count_syllables,in_str.lower().split()))) == 1:
     print("Парам пам-пам")
 else:
     print("Пам парам")
